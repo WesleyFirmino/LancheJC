@@ -1,18 +1,18 @@
 ﻿<div id="carouselLanches" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselLanches" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselLanches" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselLanches" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="~/images/lanche_1.jpg" class="d-block w-100" alt="lanche_1">
+            <img src="~/images/lanche_1.jpg" class="d-block w-100 carousel-img" alt="lanche_1">
         </div>
         <div class="carousel-item">
-            <img src="~/images/lanche_2.jpg" class="d-block w-100" alt="lanche_2">
+            <img src="~/images/lanche_2.jpg" class="d-block w-100 carousel-img" alt="lanche_2">
         </div>
         <div class="carousel-item">
-            <img src="~/images/lanche_3.jpg" class="d-block w-100" alt="lanche_3">
+            <img src="~/images/lanche_3.jpg" class="d-block w-100 carousel-img" alt="lanche_3">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselLanches" data-bs-slide="prev">
@@ -24,3 +24,10 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+<style>
+    .carousel-img {
+        height: 500px; /* Altura fixa */
+        object-fit: cover; /* Mantém proporção e cobre todo o espaço */
+    }
+</style>
