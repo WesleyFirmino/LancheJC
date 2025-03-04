@@ -1,4 +1,5 @@
 using LanchesJC.Context;
+using LanchesJC.Models;
 using LanchesJC.Repositories;
 using LanchesJC.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySql, S
 builder.Services.AddTransient<ILanchesRepository, LanchesRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
 
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
