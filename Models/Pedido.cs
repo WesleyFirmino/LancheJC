@@ -16,9 +16,11 @@ public class Pedido
 
     [Required(ErrorMessage = "Informe o seu endereço")]
     [StringLength(100)]
+    [Display(Name = "Endereço")]
     public string Endereco1 { get; set; }
 
     [StringLength(100)]
+    [Display(Name = "Complemento")]
     public string Endereco2 { get; set; }
 
     [Required(ErrorMessage = "Informe o seu CEP")]
