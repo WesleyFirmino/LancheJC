@@ -2,6 +2,7 @@ using LanchesJC.Context;
 using LanchesJC.Models;
 using LanchesJC.Repositories;
 using LanchesJC.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,9 @@ var mySql = builder.Configuration.GetConnectionString("DefaultConnection");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySql, ServerVersion.AutoDetect(mySql)));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
 
 builder.Services.AddTransient<ILanchesRepository, LanchesRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
@@ -31,8 +35,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseSession();
 app.UseRouting();
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
